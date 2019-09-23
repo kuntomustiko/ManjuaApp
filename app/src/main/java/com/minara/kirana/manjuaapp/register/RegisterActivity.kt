@@ -1,7 +1,8 @@
-package com.minara.kirana.manjuaapp
+package com.minara.kirana.manjuaapp.register
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.minara.kirana.manjuaapp.R
 import com.minara.kirana.manjuaapp.register.presenter.RegisterPresenter
 import com.minara.kirana.manjuaapp.register.presenter.RegisterView
 import kotlinx.android.synthetic.main.activity_register.*
