@@ -1,5 +1,6 @@
 package com.minara.kirana.manjuaapp.network
 
+import com.minara.kirana.manjuaapp.login.data.ResultLogin
 import com.minara.kirana.manjuaapp.register.data.ResultRegister
 import retrofit2.Call
 import retrofit2.http.Field
@@ -11,8 +12,21 @@ interface ManjuaService {
     // bikin ini sesuai dengan registerCustomer dan hal-hal apa saja yang dibutuhkan ketika registerCustomer
     @FormUrlEncoded
     @POST("registerCustomer")
-    fun register(@Field("nama") nama:String,
-                 @Field("email") email:String,
-                 @Field("password") password:String,
-                 @Field("hp") hp:String):Call<ResultRegister>
+    fun register(
+        @Field("nama") nama: String,
+        @Field("email") email: String,
+        @Field("password") password: String,
+        @Field("hp") hp: String
+    ): Call<ResultRegister>
+
+
+    // bikin ini sesuai dengan loginCustomer dan hal-hal apa saja yang dibutuhkan ketika loginCustomer
+    @FormUrlEncoded
+    @POST("loginCustomer")
+    fun login(
+        @Field("email") email: String,
+        @Field("password") password: String
+    ): Call<ResultLogin>
+
+
 }

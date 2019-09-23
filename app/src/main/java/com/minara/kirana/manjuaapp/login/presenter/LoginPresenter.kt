@@ -1,0 +1,29 @@
+package com.minara.kirana.manjuaapp.login.presenter
+
+import com.minara.kirana.manjuaapp.login.data.ResultLogin
+import com.minara.kirana.manjuaapp.network.NetworkConfig
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
+class LoginPresenter (val loginView: LoginView) {
+
+    fun login(email:String, password:String){
+        NetworkConfig.service()
+            .login(email, password)
+            .enqueue(object : Callback<ResultLogin>{
+                override fun onFailure(call: Call<ResultLogin>, t: Throwable) {
+                    loginView.onError(t.localizedMessage)
+                }
+
+                override fun onResponse(call: Call<ResultLogin>, response: Response<ResultLogin>) {
+                    if (response.body()?.status == 200){
+                        loginView.onSuccessLogin(response.body()?.user, response.body()?.message)
+                    } else{
+                        loginView.onError(response.body()?.message)
+                    }
+                }
+
+            })
+    }
+}

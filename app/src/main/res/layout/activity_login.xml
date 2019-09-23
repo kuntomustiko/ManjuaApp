@@ -7,7 +7,7 @@
     android:layout_marginTop="40dp"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".register.RegisterActivity">
+    tools:context=".login.LoginActivity">
 
     <ImageView
         android:layout_width="100dp"
@@ -18,29 +18,14 @@
         android:src="@drawable/logo" />
 
     <EditText
-        android:id="@+id/registerName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Name" />
-
-
-    <EditText
-        android:id="@+id/registerEmail"
+        android:id="@+id/edt_loginEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="Email" />
 
     <EditText
-        android:id="@+id/registerHp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Hp" />
-
-    <EditText
-        android:id="@+id/registerPassword"
+        android:id="@+id/edt_loginPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -48,13 +33,42 @@
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/btnRegister"
+        android:id="@+id/btnLoginEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/background_button"
-        android:text="Register"
+        android:text="Log In"
         android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btnLoginGoogle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/background_button_login_google"
+        android:text="Log In With Google"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Belum punya akun?" />
+
+    <TextView
+        android:id="@+id/linkRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Silahkan Daftar"
+        android:textColor="@color/colorPrimary" />
+
+
 </LinearLayout>
