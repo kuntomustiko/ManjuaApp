@@ -28,12 +28,19 @@ interface ManjuaService {
         @Field("password") password: String
     ): Call<ResultLogin>
 
-    // bikin ini sesuai dengan loginCustomer dan hal-hal apa saja yang dibutuhkan ketika loginGmail
+    // bikin ini sesuai dengan loginGmail dan hal-hal apa saja yang dibutuhkan ketika loginGmail
     @FormUrlEncoded
-    @POST("loginCustomer")
+    @POST("loginGmail")
     fun loginGmail(
         @Field("email") email: String,
         @Field("name") name: String
     ): Call<ResultLogin>
 
+    // bikin ini sesuai dengan updateHpUser dan hal-hal apa saja yang dibutuhkan ketika updateHpUser
+    @FormUrlEncoded
+    @POST("updateHpUser")
+    fun verify(
+        @Field("idUser") idUser: String,
+        @Field("hp") hp: String
+    ): Call<ResultRegister>
 }
