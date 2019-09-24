@@ -29,6 +29,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
     //2
     private lateinit var presenter: LoginPresenter
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -108,7 +109,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
             startActivity<MainActivity>()
             finish()
         } else{
-            startActivity<VerifyHpActivity>()
+            startActivity<VerifyHpActivity>("id" to userid)
         }
     }
 }

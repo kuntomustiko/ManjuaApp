@@ -4,6 +4,10 @@ import com.google.gson.annotations.SerializedName
 
 class ResultLogin {
 
+    // hari k2
+    @field:SerializedName("user_id")
+    val user_id:String? = null
+
     @field:SerializedName("message")
     val message:String? = null
 
