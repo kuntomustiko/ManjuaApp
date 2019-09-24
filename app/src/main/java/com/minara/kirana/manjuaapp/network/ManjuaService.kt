@@ -15,8 +15,8 @@ interface ManjuaService {
     fun register(
         @Field("nama") nama: String,
         @Field("email") email: String,
-        @Field("password") password: String,
-        @Field("hp") hp: String
+        @Field("hp") hp: String,
+        @Field("password") password: String
     ): Call<ResultRegister>
 
 
