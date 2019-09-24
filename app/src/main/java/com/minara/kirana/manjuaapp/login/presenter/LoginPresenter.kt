@@ -26,4 +26,25 @@ class LoginPresenter (val loginView: LoginView) {
 
             })
     }
+
+    fun loginGmail(email:String, name:String){
+        NetworkConfig.service()
+            .loginGmail(email, name)
+            .enqueue(object : Callback<ResultLogin>{
+                override fun onFailure(call: Call<ResultLogin>, t: Throwable) {
+                    loginView.onError(t.localizedMessage)
+                }
+
+                override fun onResponse(call: Call<ResultLogin>, response: Response<ResultLogin>) {
+                    if (response.body()?.status == 200){
+                        loginView.onSuccessLoginGmail(response.body()?.user, response.body()?.message, response.body()?.user_id)
+                    } else{
+                        loginView.onError(response.body()?.message)
+                    }
+                }
+
+            })
+    }
+
+
 }

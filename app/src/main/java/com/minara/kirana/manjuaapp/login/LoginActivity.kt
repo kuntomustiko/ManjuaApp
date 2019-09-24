@@ -14,6 +14,7 @@ import com.minara.kirana.manjuaapp.login.data.User
 import com.minara.kirana.manjuaapp.login.presenter.LoginPresenter
 import com.minara.kirana.manjuaapp.login.presenter.LoginView
 import com.minara.kirana.manjuaapp.register.RegisterActivity
+import com.minara.kirana.manjuaapp.verifyHp.VerifyHpActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -23,7 +24,7 @@ import org.jetbrains.anko.yesButton
 class LoginActivity : AppCompatActivity(), LoginView {
 
 
-    private var googleSignInClient : GoogleSignInClient? = null
+    private var googleSignInClient: GoogleSignInClient? = null
 
     //2
     private lateinit var presenter: LoginPresenter
@@ -45,8 +46,8 @@ class LoginActivity : AppCompatActivity(), LoginView {
         btnLoginEmail.onClick {
 
             presenter.login(
-            edt_loginEmail.text.toString(),
-            edt_loginPassword.text.toString()
+                edt_loginEmail.text.toString(),
+                edt_loginPassword.text.toString()
             )
         }
         // 1
@@ -73,8 +74,10 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
             try {
                 // Google Sign In was successful, authenticate with Firebase
+                // mendapatkan nama siapa yang masuk lewat gmail
                 val account = task.getResult(ApiException::class.java)
-                            Log.d("signin email", account?.email.toString())
+                presenter.loginGmail(account?.email ?: "", account?.displayName.toString())
+                Log.d("signin email", account?.email.toString())
 
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
@@ -95,15 +98,17 @@ class LoginActivity : AppCompatActivity(), LoginView {
         alert {
             title = "Informasi"
             message = msg ?: ""
-            yesButton {  }
+            yesButton { }
         }.show()
     }
 
     //hari k2
-    override fun onSuccessLoginGmail(user: User?, msg: String?) {
-        if (msg == "login gmail"){
+    override fun onSuccessLoginGmail(user: User?, msg: String?, userid: String?) {
+        if (msg == "login gmail") {
             startActivity<MainActivity>()
             finish()
+        } else{
+            startActivity<VerifyHpActivity>()
         }
     }
 }
