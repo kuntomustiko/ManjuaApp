@@ -1,5 +1,6 @@
 package com.minara.kirana.manjuaapp.register.presenter
 
+import android.util.Log
 import com.minara.kirana.manjuaapp.network.NetworkConfig
 import com.minara.kirana.manjuaapp.register.data.ResultRegister
 import retrofit2.Call
@@ -14,16 +15,19 @@ class RegisterPresenter(val registerView: RegisterView) {
             .enqueue(object :Callback<ResultRegister>{
                 override fun onFailure(call: Call<ResultRegister>, t: Throwable) {
                     registerView.onError(t.localizedMessage)
+
                 }
 
                 override fun onResponse(
                     call: Call<ResultRegister>,
                     response: Response<ResultRegister>
                 ) {
+
                     if (response.body()?.status == 200){
                         registerView.onSuccessRegister(response.body()?.message)
                     } else{
                         registerView.onError(response.body()?.message)
+
                     }
                 }
 

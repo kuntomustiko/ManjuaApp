@@ -40,7 +40,7 @@ class RegisterActivity : AppCompatActivity(),RegisterView {
 
         //6
         alert {
-            title = "Informasi"
+            title = "Informasi succes"
             message = msg ?: ""
             yesButton {  }
         }.show()
