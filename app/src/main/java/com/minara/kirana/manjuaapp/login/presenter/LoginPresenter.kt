@@ -9,6 +9,11 @@ import retrofit2.Response
 class LoginPresenter (val loginView: LoginView) {
 
     fun login(email:String, password:String){
+        if (email.isEmpty()){
+            loginView.onError("email tidak boleh kosong")
+        } else if (password.isEmpty()){
+            loginView.onError("password tidak boleh kosong")
+        } else{
         NetworkConfig.service()
             .login(email, password)
             .enqueue(object : Callback<ResultLogin>{
@@ -25,6 +30,8 @@ class LoginPresenter (val loginView: LoginView) {
                 }
 
             })
+
+        }
     }
 
     fun loginGmail(email:String, name:String){
