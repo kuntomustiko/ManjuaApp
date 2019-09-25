@@ -1,10 +1,13 @@
 package com.minara.kirana.manjuaapp.network
 
+import com.minara.kirana.manjuaapp.utama.fragment.home.data.ResultProduk
 import com.minara.kirana.manjuaapp.login.data.ResultLogin
 import com.minara.kirana.manjuaapp.register.data.ResultRegister
+import com.minara.kirana.manjuaapp.utama.fragment.home.data.ResultKategori
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ManjuaService {
@@ -43,4 +46,13 @@ interface ManjuaService {
         @Field("idUser") idUser: String,
         @Field("hp") hp: String
     ): Call<ResultRegister>
+
+
+    // hari ke 3
+    // bikin ini untuk mendapatkan data dengan get dari get produk
+    @GET("getProduk")
+    fun getProduk():Call<ResultProduk>
+
+    @GET("getKategori")
+    fun getKategori():Call<ResultKategori>
 }

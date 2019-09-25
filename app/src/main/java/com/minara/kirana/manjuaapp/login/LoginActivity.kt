@@ -8,12 +8,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.minara.kirana.manjuaapp.MainActivity
+import com.minara.kirana.manjuaapp.utama.MainActivity
 import com.minara.kirana.manjuaapp.R
 import com.minara.kirana.manjuaapp.login.data.User
 import com.minara.kirana.manjuaapp.login.presenter.LoginPresenter
 import com.minara.kirana.manjuaapp.login.presenter.LoginView
 import com.minara.kirana.manjuaapp.register.RegisterActivity
+import com.minara.kirana.manjuaapp.utils.SessionManager
 import com.minara.kirana.manjuaapp.verifyHp.VerifyHpActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.alert
@@ -92,6 +93,15 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
     //4
     override fun onSuccessLogin(user: User?, msg: String?) {
+
+        // memanggil session manager // ini sudah membawa data email,nama,phone
+        val sesi = SessionManager(this)
+        sesi.createLoginSession("1")
+        sesi.email = user?.userEmail
+        sesi.nama = user?.userNama
+        sesi.phone = user?.userHp
+
+
         startActivity<MainActivity>()
     }
 
