@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Manjua App</string>
     <string name="default_web_client_id">AIzaSyDQq0PyETyKn1t9nASE407UYw3h-HawHWQ</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

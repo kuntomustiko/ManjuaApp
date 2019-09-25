@@ -24,7 +24,8 @@
         <activity android:name=".login.LoginActivity">
         </activity>
         <activity android:name=".register.RegisterActivity" />
-        <activity android:name=".home.MainActivity" />
+        <activity android:name="com.minara.kirana.manjuaapp.utama.MainActivity"
+            android:theme="@style/Theme.Design.Light.NoActionBar"/>
     </application>
 
 </manifest>

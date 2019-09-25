@@ -2,7 +2,7 @@ package com.minara.kirana.manjuaapp.verifyHp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.minara.kirana.manjuaapp.MainActivity
+import com.minara.kirana.manjuaapp.utama.MainActivity
 import com.minara.kirana.manjuaapp.R
 import kotlinx.android.synthetic.main.activity_verify_hp.*
 import org.jetbrains.anko.alert
