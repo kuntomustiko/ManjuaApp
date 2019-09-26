@@ -51,8 +51,18 @@ interface ManjuaService {
     // hari ke 3
     // bikin ini untuk mendapatkan data dengan get dari get produk
     @GET("getProduk")
-    fun getProduk():Call<ResultProduk>
+    fun getProduk(): Call<ResultProduk>
 
     @GET("getKategori")
-    fun getKategori():Call<ResultKategori>
+    fun getKategori(): Call<ResultKategori>
+
+    @GET("populer")
+    fun getPopuler(): Call<ResultProduk>
+
+    @GET("promosi")
+    fun getPromosi(): Call<ResultProduk>
+
+    @FormUrlEncoded
+    @POST("produkPerKategori")
+    fun getProdukKategori(@Field("id")id:String): Call<ResultProduk>
 }
