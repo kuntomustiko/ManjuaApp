@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/bottomName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PRODUK 2"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="3dp"/>
+
+        <TextView
+            android:id="@+id/bottomPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:text="RP. 34.000"
+            android:layout_marginBottom="2dp"/>
+
+        <EditText
+            android:id="@+id/bottomNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bottomName"
+            android:gravity="start"
+            android:hint="Catatan untuk penjual"
+            android:lines="3"
+            android:background="@drawable/background_edt"
+            android:padding="5dp" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:gravity="center"
+            android:layout_below="@id/bottomNote"
+            android:textSize="23sp"
+            android:padding="10dp"
+            android:id="@+id/bottomCount"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/background_edt"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:id="@+id/bottomPlus"
+            android:layout_toLeftOf="@id/bottomCount"
+            android:padding="10dp"
+            android:textSize="23sp"
+            android:layout_below="@id/bottomNote"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/background_button"
+            android:layout_marginRight="10dp"/>
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/bottomMinus"
+            android:layout_toRightOf="@id/bottomCount"
+            android:padding="10dp"
+            android:textSize="23sp"
+            android:layout_below="@id/bottomNote"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/background_btn_count_minus"
+            android:layout_marginLeft="10dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/colorWhite"
+            android:text="Masuk ke Keranjang"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/bottomMinus"
+            android:id="@+id/bottomKeranjang"
+            android:background="@drawable/bakcground_btn_masuk_keranjang"/>
+    </RelativeLayout>
+</LinearLayout>

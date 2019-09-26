@@ -1,7 +1,6 @@
 package com.minara.kirana.manjuaapp.utama.fragment.home
 
 import com.minara.kirana.manjuaapp.network.NetworkConfig
-import com.minara.kirana.manjuaapp.utama.fragment.home.data.KategoriItem
 import com.minara.kirana.manjuaapp.utama.fragment.home.data.ResultKategori
 import com.minara.kirana.manjuaapp.utama.fragment.home.data.ResultProduk
 import retrofit2.Call
@@ -23,10 +22,9 @@ class HomePresenter (var homeView: HomeView) {
                     response: Response<ResultProduk>
                 ) {
                     if (response.body()?.status == 200){
-                        homeView.onSuccessProduk(response.body()?.data)
+                        homeView.onSuccessProduk(response.body()?.kategori)
                     }
                 }
-
             })
     }
 

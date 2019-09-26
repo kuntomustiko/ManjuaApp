@@ -11,9 +11,12 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import com.synnapps.carouselview.ImageListener
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.minara.kirana.manjuaapp.utama.fragment.home.adapter.ProdukAdapter
+import com.minara.kirana.manjuaapp.listProduk.ListProdukActivity
+import com.minara.kirana.manjuaapp.utama.fragment.home.adapter.KategoriAdapter
 import com.minara.kirana.manjuaapp.utama.fragment.home.data.KategoriItem
 import com.minara.kirana.manjuaapp.utama.fragment.home.data.ProdukItem
+import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.support.v4.startActivity
 
 
 /**
@@ -35,13 +38,11 @@ class HomeFragment : Fragment(), HomeView {
 
 //    private var dataKategori: List<KategoriItem?>? = null
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
         return inflater.inflate(
             com.minara.kirana.manjuaapp.R.layout.fragment_home,
             container,
@@ -56,6 +57,15 @@ class HomeFragment : Fragment(), HomeView {
         presenter.getProduk()
         presenter.getKategori()
 
+        promosi.onClick {
+            startActivity<ListProdukActivity>("status" to 1)
+        }
+        populer.onClick {
+            startActivity<ListProdukActivity>("status" to 2)
+        }
+
+
+
     }
 
     var imageListener: ImageListener = object : ImageListener {
@@ -64,7 +74,7 @@ class HomeFragment : Fragment(), HomeView {
 
             activity?.let {
                 Glide.with(it)
-                    .load("http://192.168.43.124/server_commerce/image_growback/"+
+                    .load("http://192.168.1.100/server_commerce/image_growback/"+
                             dataProduk?.get(position)?.produkGambar).into(imageView)
             }
         }
@@ -77,15 +87,15 @@ class HomeFragment : Fragment(), HomeView {
         carouselView.pageCount = dataProduk?.size?:0
     }
 
-    override fun onErrorProduk(msg: String) {
+    override fun onErrorProduk(msg: String?) {
     }
 
     override fun onSuccessKategori(data: List<KategoriItem?>?) {
-        listKategori.adapter = ProdukAdapter(data)
+        listKategori.adapter = KategoriAdapter(data)
 
     }
 
-    override fun onErrorKategori(msg: String) {
+    override fun onErrorKategori(msg: String?) {
     }
 
 }

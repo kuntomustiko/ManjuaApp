@@ -6,8 +6,8 @@ import com.google.gson.annotations.SerializedName
 @Generated("com.robohorse.robopojogenerator")
 data class ResultProduk(
 
-    @field:SerializedName("data")
-	val data: List<ProdukItem?>? = null,
+    @field:SerializedName("kategori")
+	val kategori: List<ProdukItem?>? = null,
 
     @field:SerializedName("message")
 	val message: String? = null,
